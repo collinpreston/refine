@@ -19,6 +19,13 @@ export const UndoableQueue: React.FC<{
             if (notificationItem.isRunning === true) {
                 if (notificationItem.seconds === 0) {
                     notificationItem.doMutation();
+                    notificationDispatch({
+                        type: ActionTypes.REMOVE,
+                        payload: {
+                            id: notificationItem.id,
+                            resource: notificationItem.resource,
+                        },
+                    });
                 }
                 if (!notificationItem.isSilent) {
                     open?.({

@@ -290,11 +290,6 @@ export const useUpdateMany = <
                         id,
                     }),
                 );
-
-                notificationDispatch({
-                    type: ActionTypes.REMOVE,
-                    payload: { id: ids, resource },
-                });
             },
             onSuccess: (
                 data,
